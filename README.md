@@ -1,1 +1,9 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/TgL49qdK)
+# Welcome to Maria Beletsky's Assignment B4 Repo 
+
+This repo contains an .Rmd file containing the source code for Maria Beletsky's 
+Assignment B4 for STAT 545B (December 2024) and the knitted .md file. 
+
+For Assignment B4, I chose Option A, and so in this assignment I plotted the most common
+words in Jane Austen's *Pride and Prejudice* and fitted a linear model to world population data
+from the "gapminder" dataset from the "gapminder" R package. Please view the knitted .md file to
+see the assignment. 

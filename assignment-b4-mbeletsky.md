@@ -55,7 +55,6 @@ take out all the stop words. We will store the new vector in
 
 ``` r
 # Retrieve "Pride and Prejudice" and store in a vector
-
 pap_fulltext <- janeaustenr::prideprejudice
 head(pap_fulltext)
 ```
@@ -72,7 +71,6 @@ characters.
 
 ``` r
 # Split up the full text into individual words, stored in a new vector
-
 pap_words <- unlist(strsplit(pap_fulltext, "\\s+"))
 ```
 
@@ -82,15 +80,12 @@ a new version of “pap_words” that has the stop words taken out.
 
 ``` r
 # Get a list of stop words in English
-
 stop_words_en <- stopwords("en")
 
 # Remove stop words from vector that has all individual words in the text
-
 pap_words_clean <- pap_words[!(pap_words %in% stop_words_en)]
 
 # View the first few words in the new vector
-  
 head(pap_words_clean)
 ```
 
@@ -292,21 +287,18 @@ compare them and visualize them a bit better.
 
 ``` r
 # Store the top 10 countries we want to plot in a new tibble
-
 top_10_countries <- country_growth %>%
   arrange(desc(slope)) %>%  # Sort by slope, from highest to lowest
   slice_head(n = 10) %>%  # Select the top 10 countries
   pull(country)
 
 # Reorder the countries based on the slopes from "country_growth", specifying that we want our countries in order based on biggest to smallest slope
-
 top_10_data <- gapminder %>%
   filter(country %in% top_10_countries) %>%
   left_join(country_growth %>% select(country, slope), by = "country") %>% # Assign slopes to their respective countries
   mutate(country = factor(country, levels = country_growth$country[order(country_growth$slope, decreasing = TRUE)])) # Re-order the top 10 countries by decreasing slope
 
 # Plot population growth over time for the top 10 countries
-
 ggplot(top_10_data, aes(x = year, y = pop, shape = country)) +
   geom_line(aes(color = country), linewidth = 1) + # Line plot to show population growth
   geom_point(aes(color = country), size = 2) + # Add points to make the shapes visible, I have used shapes because we are plotting 10 lines on one plot and I want them to be more easily distinguishable
